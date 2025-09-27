@@ -111,7 +111,7 @@ namespace Evaluator.Core
 
         private static List<string> Tokenize(string infix)
         {
-            var tokens = new List<string>();
+            var numop = new List<string>();
             var number = "";
 
             foreach (char ch in infix)
@@ -124,18 +124,18 @@ namespace Evaluator.Core
                 {
                     if (!string.IsNullOrEmpty(number))
                     {
-                        tokens.Add(number);
+                        numop.Add(number);
                         number = "";
                     }
 
                     if (!char.IsWhiteSpace(ch))
-                        tokens.Add(ch.ToString());
+                        numop.Add(ch.ToString());
                   
                 }
             }
             if (!string.IsNullOrEmpty(number))
-                tokens.Add(number);
-            return tokens;
+                numop.Add(number);
+            return numop;
         }
     }
 }
